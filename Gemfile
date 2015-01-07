@@ -28,9 +28,14 @@ gem 'httparty'
 
 gem 'json'
 
-gem 'sqlite3', group: :development
+group :development, :test do
+	gem 'sqlite3' 
+end
 
-gem 'rails_12factor', group: :production
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
 
 gem 'jquery-ui-rails'
 
