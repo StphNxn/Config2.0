@@ -22,33 +22,15 @@ $( document ).ready(function() {
    		$('#main').css('background-image','url('+$(this).data('image')+')');
    }); 
 
-   $('.showsidebar').click(function(){
-   	$('#navbar').hide();
-   	$('#sidebar').animate({left: 0}, 500);
-   });
-
-    $('.hidesidebar').click(function(){
-    $('#navbar').fadeIn(900);	
-   	$('#sidebar').animate({left: -200}, 500);
-   });
-
-	
-	$('[data-show]').click(function(){
-	  $($(this).data('show')).toggle();
-	});
-
-	$('[data-hide]').click(function(){
-	  $($(this).data('hide')).toggle();
-	});
 
   ///the following controls the navarrow
 
   $('#navarrow').click(function(){
     $('#navarrow').animate({left: -73}, 250, function(){
      $('#kitchenmenu').animate({left: 0}, 250, function(){
-        $('#kitchenmenu .options').animate({opacity: 0.6}, 250, function(){ 
+      $('#kitchenmenu .options, #kitchenmenu .palettes').animate({opacity: 0.6}, 250, function(){ 
           $('#x').fadeIn(200, function(){ 
-          });
+           }); 
         });
      }); 
     });
@@ -59,23 +41,57 @@ $( document ).ready(function() {
       $('#kitchenmenu').animate({left: -312}, 250, function(){
         $('#kitchenmenu .options').animate({opacity: 0}, 250, function(){
           $('#navarrow').animate({left: 0}, 250, function(){
+            $('.palettes').show().css({left: 50});
           });
         });
       });    
     });  
   });
 
+
+  $('.palettes').click(function () {
+    $('.palettes').animate({left: 312, opacity: 0}, 250, function () {
+      $('.palettes, .options, .empty, #x').hide();
+
+  });
+      $('.palettemenu').animate({left: 0}, 250);
+      $('#backarrow').fadeIn(200);
+    });
+
+  $('#backarrow').click(function(){
+    $('#backarrow').hide();
+    $('.palettes, .options, .empty, #x').show();
+   $('.palettemenu').animate({left: -312}, 500, function (){
+   }); 
+   $('.palettes').animate({left: 50, opacity: 0.6}, 0);
+  });
+
+
   //the following controls the costmenu
 
   $('#costarrow').click(function(){
     // $('#costarrow').fadeOut(100, function(){
-      $('#costmenu').animate({bottom: 500}, 500, function(){
+      $('#costmenu').animate({bottom: 0}, 250, function(){
       });
     // });
   });
 
+  // approach 1 for .slideDown & .slideUp
+  // $('.showimg').click(function () {
+  //   $('.newimg').slideDown(500, function () {
+
+  //   });
+  // });
+  // $('.hideimg').click(function () {
+  //   $('.newimg').slideUp();
+  // });
 
 
+  // approach 2 for .slideDown & .slideUp
+  // $('.showbutton').click(function () {
+  //   $(this).parent('div').animate({height: 100});
+  //   $(this).parent('div').addClass('selected');
+  // });
 
     //javascript should go above this line
 });

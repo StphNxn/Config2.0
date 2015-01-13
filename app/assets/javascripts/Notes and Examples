@@ -1,0 +1,20 @@
+ //   $('.showsidebar').click(function(){
+ //   	$('#navbar').hide();
+ //   	$('#sidebar').animate({left: 0}, 500);
+ //   });
+
+ //    $('.hidesidebar').click(function(){
+ //    $('#navbar').fadeIn(900);	
+ //   	$('#sidebar').animate({left: -200}, 500);
+ //   });
+
+	
+	// $('[data-show]').click(function(){
+	//   $($(this).data('show')).toggle();
+	// });
+
+	// $('[data-hide]').click(function(){
+	//   $($(this).data('hide')).toggle();
+	// });
+
+	
